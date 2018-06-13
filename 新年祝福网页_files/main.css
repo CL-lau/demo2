@@ -1,0 +1,25 @@
+﻿@charset "utf-8";
+/* by lanyes.org 2017 */
+*{margin:0;padding:0;border:0;}
+body{font-family:"Microsoft JhengHei", "Microsoft Yahei", Arial;font-size:12px;background:#AE000E;}
+a{text-decoration:none;color:#ffff00;}
+.clear{clear:both}
+.wrap{width:1200px;margin:0 auto;}
+.heng_left{width:250px;height:570px;background:url(../images/heng.png) no-repeat;position:absolute;top:0;left:0;z-index:1;}
+.heng_right{width:250px;height:570px;background:url(../images/heng_right.png) no-repeat;position:absolute;top:0;right:0;z-index:1;}
+.deng{width:808px;height:250px;background:url(../images/deng.png) no-repeat; position:absolute;top:0;left:0;right:0;margin:0 auto;z-index:1;}
+.lihua{width:808px;height:120px;background:url(../images/lihua.gif); position:absolute;top:58px;left:0;right:0;margin:0 auto;z-index:2;}
+.wrap .tips{color:#ffff00;font-size:18px;text-align:center;margin:260px auto 0;letter-spacing: 1px;}
+.wrap .title{text-align:center;color:#ffff00;font-size:62px;font-weight:bold;margin:0 auto;padding:30px 0;width:100%}
+.wrap .gif{text-align:center;margin:0 auto;width:100%;padding:20px 0}
+.wrap .gif img{margin-right:10px}
+.wrap .zhufu{width:100%;margin:0 auto;text-align:center;color:#ffff00;font-size:30px;padding:20px 0}
+.wrap .zhufu h1{color:#fff;font-size:32px;padding-bottom:25px;}
+.wrap .zhufu p{line-height:55px;letter-spacing: 5px;}
+.wrap .formbox{text-align: center;width: 100%;padding:25px 0;}
+.wrap .formbox input{outline:none;width:300px;height:50px;border-radius:4px;font-size:18px;}
+.wrap .formbox input[type="text"]{padding:0 10px}
+.wrap .formbox input[type="submit"]{width:100px;font-size:18px;color:#ffff00;background:#F7091C;cursor:pointer;}
+.wrap .formbox input[type="submit"]:hover{background:#F04553}
+.wrap .formbox p{color:#ffff00;font-size:24px;padding-bottom:25px}
+.wrap .copyright{color:#ffff00;font-size:14px;padding:20px 0 20px;text-align:center}

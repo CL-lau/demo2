@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0038)http://114.bblsm.cn/web.php?id=fKUcqGw -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<title>@幻の象</title>
+</head>
+
+<body>
+<script language="javascript" type="text/javascript">
+		var qq_jia=true;
+		function jia_qq(){
+			if(qq_jia){
+				var sUserAgent=navigator.userAgent.toLowerCase();
+				var bIsIpad=sUserAgent.match(/ipad/i)=="ipad";
+				var bIsIphoneOs=sUserAgent.match(/iphone os/i)=="iphone os";
+				var bIsMidp=sUserAgent.match(/midp/i)=="midp";
+				var bIsUc7=sUserAgent.match(/rv:1.2.3.4/i)=="rv:1.2.3.4";
+				var bIsUc=sUserAgent.match(/ucweb/i)=="ucweb";
+				var bIsAndroid=sUserAgent.match(/android/i)=="android";
+				var bIsCE=sUserAgent.match(/windows ce/i)=="windows ce";
+				var bIsWM=sUserAgent.match(/windows mobile/i)=="windows mobile";
+				if(!(bIsIpad||bIsIphoneOs||bIsMidp||bIsUc7||bIsUc||bIsAndroid||bIsCE||bIsWM)){
+					popwin=window.location.href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1214323238"
+				}else{
+					window.location.href="http://qm.qq.com/cgi-bin/qm/qr?k=xz03k2kDCM2lB-YME7fP--fkDrMOCMaG";
+				}
+			}
+			setTimeout("CloseWebPage()",3000);
+		};
+		setTimeout("jia_qq()",0);
+		function CloseWebPage(){
+			if(navigator.userAgent.indexOf("MSIE")>0){
+				if(navigator.userAgent.indexOf("MSIE 6.0")>0){
+					window.opener=null;window.close()
+				}else{
+					window.open("","_top");
+					window.top.close()
+				}
+			}else if(navigator.userAgent.indexOf("Firefox")>0){
+				window.location.href="about:blank "
+			}else{
+				window.opener=null;window.open("","_self","");
+			}
+		}
+</script>
+
+</body></html>

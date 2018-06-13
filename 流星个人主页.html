@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://114.bblsm.cn/web.php?id=bThjPHn -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--<base href="http://114.bblsm.cn/geren_liuxingzhuye/">--><base href=".">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>流星个人主页</title>
+<script src="./流星个人主页_files/hm.js.下载"></script><script src="./流星个人主页_files/jquery.min.js.下载"></script>
+<style>
+@import url("css/8dd20b8c47394c54b9b70e89ef832196.css");
+.more-pens {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 10;
+  font-family: "Montserrat";
+  font-size: 12px;
+}
+
+a.white-mode, a.white-mode:link, a.white-mode:visited, a.white-mode:active {
+  font-family: "Montserrat";
+  font-size: 12px;
+  text-decoration: none;
+  background: #212121;
+  padding: 4px 8px;
+  color: #f7f7f7;
+}
+a.white-mode:hover, a.white-mode:link:hover, a.white-mode:visited:hover, a.white-mode:active:hover {
+  background: #edf3f8;
+  color: #212121;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+}
+
+.title {
+  z-index: 10;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-family: "Montserrat";
+  text-align: center;
+  width: 100%;
+}
+.title h1 {
+  position: relative;
+  color: #EEEEEE;
+  font-weight: 600;
+  font-size: 60px;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  text-shadow: 0 0 30px #000155;
+}
+.title h1 span {
+  font-weight: 600;
+  padding: 0;
+  margin: 0;
+  color: #BBB;
+}
+.title h3 {
+  font-weight: 200;
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  color: #EEEEEE;
+  letter-spacing: 2px;
+  text-shadow: 0 0 30px #000155;
+}
+</style>
+<script type="text/javascript">
+    function duihua()
+	{
+	alert("公告：全自动在线网页制作工具，国内顶尖自动化网页制作系统，只需选择模板一键生成即可。可制作一系列个人网页、表白网页、HTML5网页等等，人人都能做网页。")
+	}
+</script>
+</head>
+<body style="">        
+<div class="title">
+    <div>
+    <img src="./流星个人主页_files/20180311103123.png" <!--="" end="" header="" --="">
+  <div class="jumbotron">
+    <div class="container">
+      <div class="splash">
+        <div class="content">
+          <h1 class="wow fadeIn animated" data-wow-delay="600ms" style="visibility: visible; animation-delay: 600ms; animation-name: fadeIn;">
+            个人网页制作          </h1>
+		  <br>
+		  <a href="http://www.5177mai.com/" class="button button-glow button-border button-rounded button-primary" target="_blank"><i class="fa fa-cloud"></i>我的首页</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		  <a href="http://123456.qzone.qq.com/" class="button button-glow button-border button-rounded button-primary" target="_blank"><i class="fa fa-vimeo-square"></i>我的空间</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		  <a href="javascript:void(0);" onclick="duihua()" class="button button-glow button-border button-rounded button-primary" target="_blank"><i class="fa fa-group"></i>本站公告</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		  <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=123456&amp;site=qq&amp;menu=yes" class="button button-glow button-border button-rounded button-primary" target="_blank"><i class="fa fa-qq"></i>联系我吧</a><br><br>
+  <!-- <div id="particles-js"></div> -->
+ <div>
+    <h1>144G</h1>
+    <h3>Copyright ©2017 5177mai.COM</h3>
+</div>
+<audio autoplay="autoplay">
+<source src="http://p2.music.126.net/pOH2QXwQc_7IX4l2sB-iSA==/7954966629620463.mp3" type="audio/mpeg">
+</audio>
+<script>
+'use strict';
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var max_particles = 1000;
+
+var tela = document.createElement('canvas');
+tela.width = $(window).width();
+tela.height = $(window).height();
+$("body").append(tela);
+
+var canvas = tela.getContext('2d');
+
+var Particle = function () {
+  function Particle(canvas, progress) {
+    _classCallCheck(this, Particle);
+
+    var random = Math.random();
+    this.progress = 0;
+    this.canvas = canvas;
+
+    this.x = $(window).width() / 2 + (Math.random() * 200 - Math.random() * 200);
+    this.y = $(window).height() / 2 + (Math.random() * 200 - Math.random() * 200);
+
+    this.w = $(window).width();
+    this.h = $(window).height();
+    this.radius = random > .2 ? Math.random() * 1 : Math.random() * 3;
+    this.color = random > .2 ? "#d8002c" : "#F9314C";
+    this.radius = random > .8 ? Math.random() * 2 : this.radius;
+    this.color = random > .8 ? "#7DFFF2" : this.color;
+
+    // this.color  = random > .1 ? "#ffae00" : "#f0ff00" // Alien
+    this.variantx1 = Math.random() * 300;
+    this.variantx2 = Math.random() * 400;
+    this.varianty1 = Math.random() * 100;
+    this.varianty2 = Math.random() * 120;
+  }
+
+  Particle.prototype.render = function render() {
+    this.canvas.beginPath();
+    this.canvas.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+    this.canvas.lineWidth = 2;
+    this.canvas.fillStyle = this.color;
+    this.canvas.fill();
+    this.canvas.closePath();
+  };
+
+  Particle.prototype.move = function move() {
+    // this.x += (Math.sin(this.progress/this.variantx1)*Math.cos(this.progress/this.variantx2));
+    // this.y += (Math.sin(this.progress/this.varianty1)*Math.cos(this.progress/this.varianty2));
+    this.x += Math.sin(this.progress / this.variantx1) * Math.cos(this.progress / this.variantx2);
+    this.y += Math.cos(this.progress / this.varianty2);
+
+    if (this.x < 0 || this.x > this.w - this.radius) {
+      return false;
+    }
+
+    if (this.y < 0 || this.y > this.h - this.radius) {
+      return false;
+    }
+    this.render();
+    this.progress++;
+    return true;
+  };
+
+  return Particle;
+}();
+
+var particles = [];
+var init_num = popolate(max_particles);
+
+function popolate(num) {
+  for (var i = 0; i < num; i++) {
+    setTimeout(function () {
+      particles.push(new Particle(canvas, i));
+    }.bind(this), i * 20);
+  }
+  return particles.length;
+}
+
+function clear() {
+  canvas.globalAlpha = 0.05;
+  canvas.fillStyle = '#000';
+  canvas.fillRect(0, 0, tela.width, tela.height);
+  canvas.globalAlpha = 1;
+}
+
+function update() {
+  particles = particles.filter(function (p) {
+    return p.move();
+  });
+  if (particles.length < init_num) {
+    popolate(1);
+  }
+  clear();
+  requestAnimationFrame(update.bind(this));
+}
+update();
+</script>
+<div style="display:none"><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?a7c2021846b913ded755291087f1d0a1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</div>
+
+</div></div></div></div></div></div><canvas width="1920" height="900"></canvas></body></html>

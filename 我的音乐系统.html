@@ -1,0 +1,179 @@
+
+<!-- saved from url=(0038)http://114.bblsm.cn/web.php?id=iVM6Opp -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--<base href="http://114.bblsm.cn/quwei_zaixianbofang/">--><base href=".">
+<title>我的音乐系统</title>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 
+    <!--[if IE]>
+    <script type="text/javascript" language="javascript">
+        alert("本播放器暂不支持IE！请换一个浏览器……");
+        //window.location="/oops.html";
+    </script>
+    <style>body{display: none;}</style>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="./我的音乐系统_files/player.css">
+    
+    <script src="./我的音乐系统_files/hm.js.下载"></script><script type="text/javascript" src="./我的音乐系统_files/jquery-1.10.2.js.下载"></script>
+    <script type="text/javascript" src="./我的音乐系统_files/jquery-ui.js.下载"></script>
+    <script type="text/javascript" src="./我的音乐系统_files/canvas.js.下载"></script>
+    <script type="text/javascript" src="./我的音乐系统_files/player.js.下载"></script>
+</head>
+<body style="">
+
+	<!--模糊画布-->
+	<div class="blur">
+		<canvas id="canvas"></canvas>
+	</div>
+	
+	<div class="playerMain">
+		<div class="top">
+			<a class="logo" title="在线网页制作系统 - 小彬网络科技 歌曲来自网易云音乐">♫ 在线播放</a>
+			<div class="search">
+                <form id="search-input-form">
+                    <input name="pages" id="pages" type="text" value="1" hidden="">
+                    <div class="searchBtn" id="searchBtn"></div>
+                    <input type="text" class="searchTxt" name="name" id="searchTxt" value="薛之谦">
+                </form>
+			</div>
+			<div class="mainNav">
+				<a href="http://www.bblsm.cn/" class="myroom" target="_blank">个人网页制作</a>
+			</div>
+		</div>
+		<div class="middle">
+			<div class="mainWrap">
+				<div class="leftBar">
+					<ul class="menuUL">
+						<li class="menuLi cur">
+							<a href="javascript:void(0);">
+								<i class="icon iplay"></i>
+								正在播放
+							</a>
+						</li>
+						<li class="menuLi cannotclick">
+							<a href="javascript:void(0);">
+								<i class="icon ihst"></i>
+								播放历史
+							</a>
+						</li>
+						<li class="menuLi cannotclick">
+							<a href="javascript:void(0);">
+								<i class="icon ishouc"></i>
+								收藏的歌曲
+							</a>
+						</li>
+					</ul>
+					<!--div class="collectOut">
+						<span class="colS">我创建的精选集</span>
+						<a href="#" class="colA"></a>
+					</div>
+					<div class="cellectList"></div-->
+					<audio id="audio" src=""></audio>			
+				</div>
+				<div class="mainBody">
+					<div class="playHd">
+						<div class="phInner">
+							<div class="col">歌曲</div>
+							<div class="col">演唱者</div>
+							<div class="col">专辑</div>
+						</div>
+					</div>
+					<div class="playBd">
+						<div class="scrollView">
+							<ul class="songUL" id="musicList"></ul>
+						</div>
+					</div>
+					<div class="playFt">
+						<div class="track">
+							<div class="uiCheck">
+								<input class="checkAll" type="checkbox" select="0">
+							</div>
+							<div class="uiItem">
+								<a href="javascript:void(0);" class="itIcon itDele">删除</a>
+							</div>
+							<div class="uiItem">
+								<a href="javascript:void(0);" class="itIcon itShou">收藏</a>
+							</div>
+							<div class="uiItem">
+								<a href="javascript:void(0);" class="itIcon itJin">添加到精选集</a>
+							</div>
+							<div class="uiItem">
+								<a href="javascript:void(0);" class="itIcon itMore">更多</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mainOuther">
+					<div class="albumCover">
+						<a class="image-light">
+							<img src="./我的音乐系统_files/3387595325986974.jpg" id="canvas1">
+						</a>
+					</div>
+					<div class="albumSale">
+						<!--a href="#" class="asA">
+							<img src="">
+						</a-->
+					</div>
+					<div id="lyr"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="bottom">
+			<div class="playerWrap">
+				<div class="playerCon">
+					<a href="javascript:void(0);" class="pbtn prevBtn"></a>
+					<a href="javascript:void(0);" class="pbtn playBtn"></a>
+					<a href="javascript:void(0);" class="pbtn nextBtn"></a>
+					<!--a href="#" class="mode"></a-->
+				</div>
+				<div class="playInfo">
+					<div class="trackInfo">
+						<a href="http://114.bblsm.cn/quwei_zaixianbofang/#" class="songName"></a>
+						-
+						<a href="http://114.bblsm.cn/quwei_zaixianbofang/#" class="songPlayer"></a>
+						<!--div class="trackCon">
+							<a href="#" class="tc1"></a>
+							<a href="#" class="tc2"></a>
+							<a href="#" class="tc3"></a>
+						</div-->
+					</div>
+					<div class="playerLength">
+						<div class="position">00:00</div>
+						<div class="progress">
+							<div class="pro1"></div>
+							<div class="pro2">
+								<a href="http://114.bblsm.cn/quwei_zaixianbofang/#" class="dian ui-draggable"></a>
+							</div> 
+						</div>
+						<div class="duration">00:00</div>
+					</div>
+				</div>
+				<div class="vol">
+					<!--a href="#" class="pinBtn">高品质音效</a-->
+					<div class="volm">
+						<div class="volSpeaker"></div>
+						<div class="volControl">
+							<a href="http://114.bblsm.cn/quwei_zaixianbofang/#" class="dian2 ui-draggable"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>  <!--<div class="bottom">-->
+	</div>  <!--class="playerMain"-->
+	
+	<div id="msgbox" class="pop-box" style="position: absolute; left: 810px; top: 405px; display: none;"><div class="tips" id="msgtips">Sorry,该功能暂未上线!</div><div class="readit" onclick="hideMsg();">我知道了</div></div>
+	<div id="mask" class="mask" style="width: 3840px; height: 1800px; display: none;"></div>
+	<div style="display:none"><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?a7c2021846b913ded755291087f1d0a1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</div>
+</body></html>

